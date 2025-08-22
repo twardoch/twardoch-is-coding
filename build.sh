@@ -666,16 +666,42 @@ validate_environment() {
         exit 1
     fi
     
-    # Check OS compatibility
-    case "$(uname -s)" in
-        Linux|Darwin)
-            print_status $GREEN "✅ Operating system supported: $(uname -s)"
+    # Enhanced cross-platform OS detection and compatibility
+    detect_platform() {
+        case "$(uname -s)" in
+            Linux*)
+                PLATFORM="linux"
+                PLATFORM_NAME="Linux"
+                ;;
+            Darwin*)
+                PLATFORM="macos"
+                PLATFORM_NAME="macOS"
+                ;;
+            CYGWIN*|MINGW*|MSYS*)
+                PLATFORM="windows"
+                PLATFORM_NAME="Windows (Git Bash/MSYS2)"
+                ;;
+            *)
+                PLATFORM="unknown"
+                PLATFORM_NAME="Unknown ($(uname -s))"
+                ;;
+        esac
+    }
+    
+    detect_platform
+    
+    case "$PLATFORM" in
+        linux|macos)
+            print_status $GREEN "✅ Operating system supported: $PLATFORM_NAME"
             ;;
-        CYGWIN*|MINGW*|MSYS*)
-            print_status $YELLOW "⚠️  Windows environment detected - some features may be limited"
+        windows)
+            print_status $YELLOW "⚠️  $PLATFORM_NAME detected - enabling Windows compatibility mode"
+            # Set Windows-specific configurations
+            export MSYS_NO_PATHCONV=1  # Prevent path conversion issues
+            export MSYS2_ARG_CONV_EXCL="*"
             ;;
         *)
-            print_status $YELLOW "⚠️  Unknown operating system: $(uname -s)"
+            print_status $YELLOW "⚠️  $PLATFORM_NAME - attempting compatibility mode"
             ;;
     esac
     

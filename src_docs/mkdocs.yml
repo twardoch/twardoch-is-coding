@@ -80,16 +80,9 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Talk Overview:
-    - Introduction: talk/introduction.md
-    - Structure: talk/structure.md
-    - Audience: talk/audience.md
+  - 🎤 Conference Slides: slides/index.html
   - LLM Fundamentals:
     - How LLMs Work: llm/fundamentals.md
-    - Tokenization: llm/tokenization.md
-    - Embeddings: llm/embeddings.md
-    - Transformer Architecture: llm/transformer.md
-    - Attention Mechanism: llm/attention.md
   - Development Tools:
     - IDE vs CLI Paradigms: tools/paradigms.md
     - VSCode & GitHub Copilot: tools/vscode-copilot.md
@@ -99,25 +92,12 @@ nav:
     - Tool Comparison: tools/comparison.md
   - MCP Protocol:
     - Introduction to MCP: mcp/introduction.md
-    - Simple vs Agentic APIs: mcp/simple-vs-agentic.md
-    - MCP Servers: mcp/servers.md
-    - Real-world Examples: mcp/examples.md
   - Real Projects:
     - Project Overview: projects/overview.md
     - pdf22png Case Study: projects/pdf22png.md
     - claif-packages Ecosystem: projects/claif-packages.md
-    - vttiro Development: projects/vttiro.md
-    - Workflow Evolution: projects/workflow-evolution.md
   - Practical Workflows:
     - Best Practices: workflows/best-practices.md
-    - Tool Integration: workflows/integration.md
-    - Security Considerations: workflows/security.md
-    - Configuration Examples: workflows/configuration.md
-  - Resources:
-    - References: resources/references.md
-    - Further Reading: resources/further-reading.md
-    - Tools & Links: resources/tools-links.md
-    - Community: resources/community.md
 
 extra:
   social:
