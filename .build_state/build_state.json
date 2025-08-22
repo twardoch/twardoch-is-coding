@@ -1,0 +1,14 @@
+{
+    "timestamp": "2025-08-23T00:24:07+02:00",
+    "stage": "failed",
+    "status": "failure",
+    "pid": 80751,
+    "details": "Build failed with exit code 1",
+    "build_mode": "production",
+    "options": {
+        "build_pdf": "false",
+        "clean_build": "false",
+        "dev_mode": "false",
+        "skip_optimize": "false"
+    }
+}

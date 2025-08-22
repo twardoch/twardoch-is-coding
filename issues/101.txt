@@ -1,0 +1,84 @@
+[00:06:14] $ ./build.sh
+
+==================================================
+  BUILDING twardoch-is-coding CONFERENCE MATERIALS
+==================================================
+
+🌍 Validating build environment...
+✅ Operating system supported: Darwin
+✅ Sufficient disk space available: 122799MB
+✅ Build environment validation passed
+📁 Validating project file structure...
+✅ File structure validation passed
+📋 Checking build prerequisites...
+✅ npm: 11.5.1
+✅ Node.js: v24.5.0
+✅ Git: 2.50.1
+✅ MkDocs: mkdocs, version 1.6.1 from /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/mkdocs (Python 3.11)
+   📦 MkDocs plugins configured: 8
+✅ Python: 3.11.9
+⚠️  No quality assurance tools found (optional)
+✅ hyperfine available for build performance measurement
+✅ gitnextver available for version management
+⚠️  Version warnings:
+   - Uncommitted changes detected in production build
+✅ Prerequisites check passed
+🌐 Checking network connectivity...
+✅ NPM registry accessible
+✅ PyPI accessible
+📝 Updating version with gitnextver...
+2025-08-23 00:08:19 | INFO     | Working in directory: /Users/adam/Developer/vcs/github.twardoch/pub/twardoch-is-coding
+2025-08-23 00:08:20 | INFO     | Stashing uncommitted changes before pull …
+2025-08-23 00:08:20 | INFO     | Pulling from remote 'origin' …
+2025-08-23 00:08:21 | INFO     | Successfully pulled from remote
+2025-08-23 00:08:21 | INFO     | Re-applying stashed changes …
+2025-08-23 00:08:21 | INFO     | Successfully re-applied stashed changes
+2025-08-23 00:08:21 | INFO     | Last version tag: v1.0.0
+2025-08-23 00:08:21 | INFO     | Next version will be: v1.0.1
+╭────────────────────────────────────────────────────────────────────────── 📋 Version Info ──────────────────────────────────────────────────────────────────────────╮
+│ Current version: v1.0.0                                                                                                                                             │
+│ Next version: v1.0.1                                                                                                                                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+2025-08-23 00:08:21 | INFO     | Adding all untracked and modified files...
+2025-08-23 00:08:22 | INFO     | Committing changes with message: v1.0.1
+Traceback (most recent call last):
+  File "/Users/adam/bin/gitnextver", line 400, in <module>
+    fire.Fire(main)
+  File "/Users/adam/.cache/uv/environments-v2/gitnextver-165aa31a002b24b4/lib/python3.12/site-packages/fire/core.py", line 135, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/adam/.cache/uv/environments-v2/gitnextver-165aa31a002b24b4/lib/python3.12/site-packages/fire/core.py", line 468, in _Fire
+    component, remaining_args = _CallAndUpdateTrace(
+                                ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/adam/.cache/uv/environments-v2/gitnextver-165aa31a002b24b4/lib/python3.12/site-packages/fire/core.py", line 684, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/adam/bin/gitnextver", line 396, in main
+    commit_and_tag(repo, next_version, verbose)
+  File "/Users/adam/bin/gitnextver", line 283, in commit_and_tag
+    repo.index.commit(version)
+  File "/Users/adam/.cache/uv/environments-v2/gitnextver-165aa31a002b24b4/lib/python3.12/site-packages/git/index/base.py", line 1150, in commit
+    tree = self.write_tree()
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/adam/.cache/uv/environments-v2/gitnextver-165aa31a002b24b4/lib/python3.12/site-packages/git/index/base.py", line 621, in write_tree
+    entries = self._entries_sorted()
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/adam/.cache/uv/environments-v2/gitnextver-165aa31a002b24b4/lib/python3.12/site-packages/git/index/base.py", line 202, in _entries_sorted
+    return sorted(self.entries.values(), key=lambda e: (e.path, e.stage))
+                  ^^^^^^^^^^^^
+  File "/Users/adam/.cache/uv/environments-v2/gitnextver-165aa31a002b24b4/lib/python3.12/site-packages/gitdb/util.py", line 253, in __getattr__
+    self._set_cache_(attr)
+  File "/Users/adam/.cache/uv/environments-v2/gitnextver-165aa31a002b24b4/lib/python3.12/site-packages/git/index/base.py", line 168, in _set_cache_
+    self._deserialize(stream)
+  File "/Users/adam/.cache/uv/environments-v2/gitnextver-165aa31a002b24b4/lib/python3.12/site-packages/git/index/base.py", line 197, in _deserialize
+    self.version, self.entries, self._extension_data, _conten_sha = read_cache(stream)
+                                                                    ^^^^^^^^^^^^^^^^^^
+  File "/Users/adam/.cache/uv/environments-v2/gitnextver-165aa31a002b24b4/lib/python3.12/site-packages/git/index/fun.py", line 252, in read_cache
+    version, num_entries = read_header(stream)
+                           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/adam/.cache/uv/environments-v2/gitnextver-165aa31a002b24b4/lib/python3.12/site-packages/git/index/fun.py", line 210, in read_header
+    assert version in (1, 2)
+           ^^^^^^^^^^^^^^^^^
+AssertionError
+~/Developer/vcs/github.twardoch/pub/twardoch-is-coding
+[00:08:22] $
