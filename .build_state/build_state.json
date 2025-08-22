@@ -1,9 +1,9 @@
 {
-    "timestamp": "2025-08-23T00:24:07+02:00",
-    "stage": "failed",
-    "status": "failure",
-    "pid": 80751,
-    "details": "Build failed with exit code 1",
+    "timestamp": "2025-08-23T00:48:30+02:00",
+    "stage": "build_started",
+    "status": "in_progress",
+    "pid": 944,
+    "details": "Build process initiated",
     "build_mode": "production",
     "options": {
         "build_pdf": "false",
