@@ -1,0 +1,72 @@
+```
+$ ./build.sh
+
+==================================================
+  BUILDING twardoch-is-coding CONFERENCE MATERIALS
+==================================================
+
+⚠️  Found stale lock file, removing...
+🌍 Validating build environment...
+✅ Operating system supported: Darwin
+✅ Sufficient disk space available: 118460MB
+✅ Build environment validation passed
+📁 Validating project file structure...
+✅ File structure validation passed
+📋 Checking build prerequisites...
+✅ npm: 11.5.1
+✅ Node.js: v24.5.0
+✅ Git: 2.50.1
+✅ MkDocs: mkdocs, version 1.6.1 from /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/mkdocs (Python 3.11)
+   📦 MkDocs plugins configured: 8
+✅ Python: 3.11.9
+⚠️  No quality assurance tools found (optional)
+✅ hyperfine available for build performance measurement
+✅ gitnextver available for version management
+⚠️  Version warnings:
+   - Uncommitted changes detected in production build
+✅ Prerequisites check passed
+🌐 Checking network connectivity...
+✅ NPM registry accessible
+✅ PyPI accessible
+📝 Updating version with gitnextver...
+2025-08-23 00:48:39 | INFO     | Working in directory: /Users/adam/Developer/vcs/github.twardoch/pub/twardoch-is-coding
+2025-08-23 00:48:40 | INFO     | Stashing uncommitted changes before pull …
+2025-08-23 00:48:40 | INFO     | Pulling from remote 'origin' …
+2025-08-23 00:48:40 | INFO     | Successfully pulled from remote
+2025-08-23 00:48:40 | INFO     | Re-applying stashed changes …
+2025-08-23 00:48:40 | INFO     | Successfully re-applied stashed changes
+2025-08-23 00:48:40 | INFO     | Last version tag: v1.0.1
+2025-08-23 00:48:40 | INFO     | Next version will be: v1.0.2
+╭────────────────────────────────────────────────────────────────────────── 📋 Version Info ──────────────────────────────────────────────────────────────────────────╮
+│ Current version: v1.0.1                                                                                                                                             │
+│ Next version: v1.0.2                                                                                                                                                │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+2025-08-23 00:48:40 | INFO     | Adding all untracked and modified files...
+2025-08-23 00:48:40 | INFO     | Committing changes with message: v1.0.2
+2025-08-23 00:48:41 | INFO     | Creating tag: v1.0.2
+2025-08-23 00:48:41 | INFO     | Pushing commits and tags to remote...
+╭──────────────────────────────────────────────────────────────────────────── 🎉 Success ─────────────────────────────────────────────────────────────────────────────╮
+│ ✅ Successfully created and pushed version v1.0.2                                                                                                                   │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+✅ Version updated successfully
+📦 Installing/updating dependencies...
+✅ Node.js dependencies installed
+📚 Checking MkDocs dependencies...
+⚠️  Installing mkdocs-material...
+⚠️  Installing pymdown-extensions...
+🔍 Checking for build corruption...
+🔍 Verifying build integrity...
+✅ Build integrity verification passed
+✅ No corruption detected
+```
+
+GOOD. 
+
+Now, recently you’ve been doing some work on the TOOLS around this repo. 
+
+Now focus on the CONTENT. 
+
+Re-read @PLAN.md and @TODO.md and @TORESEARCH.md and check @src_slides/ and @src_docs folders and WORK ON THE CONTENT! 
+
+I WANT A GREAT SLIDESET in @src_slides AND A GREAT "BOOK" in @src_docs 
+

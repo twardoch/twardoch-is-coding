@@ -75,11 +75,18 @@ graph LR
 # Example tokenization
 text = "The cat sat on the mat"
 tokens = [1034, 717, 423, 891, 1034, 2341]
+
+# Advanced example
+code = "function calculateSum(a, b) { return a + b; }"
+# → ["function", "calculate", "Sum", "(", "a", ",", ...)
 ```
 
 - **Words/subwords** become unique integers
-- **Vocabulary** maps tokens to IDs
+- **Vocabulary** maps tokens to IDs (~50K-100K tokens)
 - **Foundation** for all neural processing
+- **Code tokenization** preserves syntax structure
+
+*Different models, different tokenization strategies*
 
 ---
 
@@ -91,11 +98,19 @@ tokens = [1034, 717, 423, 891, 1034, 2341]
 ```python
 # Token 1034 ("the") becomes vector
 embedding = [0.1, -0.3, 0.8, 0.2, ...]  # 768+ dimensions
+
+# Similar concepts cluster together
+"cat" → [0.2, -0.1, 0.9, ...]
+"dog" → [0.3, -0.2, 0.8, ...]  # Close to "cat"
+"car" → [-0.5, 0.7, 0.1, ...] # Far from "cat"
 ```
 
 - **Semantic similarity** in vector space
 - **Related concepts** have similar embeddings
 - **Context-independent** base representation
+- **Training learns** meaningful relationships
+
+*"You shall know a word by the company it keeps"*
 
 ---
 
@@ -137,8 +152,18 @@ graph TB
 # 4. Attention Mechanism
 ## Dynamic Context Weighting
 
+```python
+# Example: "The programmer used her laptop"
+# "her" pays attention to "programmer" (0.8 weight)
+# "laptop" pays attention to "used" (0.6 weight)
+attention_weights = {
+    "her": {"programmer": 0.8, "used": 0.3, "laptop": 0.1},
+    "laptop": {"used": 0.6, "programmer": 0.4, "her": 0.2}
+}
+```
+
 - Each token "**looks at**" all other tokens
-- Computes **relevance scores** dynamically
+- Computes **relevance scores** dynamically  
 - **Weighted combination** creates context-aware output
 - Enables **long-range dependencies**
 
@@ -173,6 +198,15 @@ graph TB
 
 # Cursor Advantages
 ## Beyond VSCode + Copilot
+
+```markdown
+# .cursorrules example
+- Use TypeScript for all new files
+- Follow React functional component patterns  
+- Include JSDoc comments for functions
+- Prefer const over let/var
+- Use semantic CSS class names
+```
 
 - **Codebase-wide context** understanding
 - **.cursorrules files** for project-specific guidance
@@ -333,10 +367,17 @@ graph TB
 ```bash
 # Claude Code with MCP
 claude "Analyze this codebase and suggest improvements"
-# → Reads all files
-# → Runs static analysis tools  
-# → Executes tests
+# → Reads all files (file-system MCP server)
+# → Runs static analysis tools (linting MCP server)
+# → Executes tests (testing MCP server)
+# → Queries git history (git MCP server)
 # → Generates comprehensive report
+
+# Real example from pdf22png project:
+# - Analyzed 42 commits
+# - Set up CI/CD pipeline  
+# - Implemented automated testing
+# - Generated documentation
 ```
 
 *Autonomous execution with human oversight*
@@ -387,15 +428,19 @@ timeline
 - **42 commits** in 60 days
 - **CI/CD pipeline** implementation
 - **Automated testing** setup
+- *Tool: Claude Code for systematic automation*
 
-## claif-packages
+## claif-packages  
 - **Multi-package** Python ecosystem
 - **50+ commits** per component
 - **Comprehensive documentation**
+- *Tool: Mixed approach, coordination via Claude Code*
 
 ## vttiro
 - **100+ Claude Code sessions**
 - **Video processing** automation
+- **Complex domain logic** implementation
+- *Tool: Heavy CLI usage for complexity management*
 
 ---
 
@@ -403,13 +448,42 @@ timeline
 
 # Key Lessons Learned
 
-✅ **Combine tools strategically**  
-✅ **Always review and test** AI-generated code  
-✅ **Use version control** as safety net  
-✅ **Security considerations** remain critical  
-✅ **Start simple**, scale complexity gradually
+✅ **Combine tools strategically** - Cursor for rapid iteration, Claude Code for complex tasks  
+✅ **Always review and test** AI-generated code - AI writes, humans verify  
+✅ **Use version control** as safety net - Commit early, commit often  
+✅ **Security considerations** remain critical - Never trust, always verify  
+✅ **Start simple**, scale complexity gradually - MVP first, features later
+
+**Real insight:** *From 177 repositories analysis*  
+**54 projects** used Cursor, **1000+ sessions** with Claude Code
 
 *AI amplifies capabilities, doesn't replace judgment*
+
+---
+
+<!-- _class: workflow -->
+
+# Practical Workflow Example
+
+## Feature Implementation: JWT Authentication
+
+**Phase 1: Research** *(Gemini CLI)*
+```bash
+gemini "Compare JWT vs session auth for Node.js API"
+```
+
+**Phase 2: Prototype** *(Cursor)*  
+- Create auth routes
+- Test with sample data
+- Iterate on user flow
+
+**Phase 3: Production** *(Claude Code)*
+```bash
+claude "Implement secure JWT auth with refresh tokens"
+# → Creates models, middleware, tests
+# → Sets up proper error handling
+# → Generates documentation
+```
 
 ---
 
