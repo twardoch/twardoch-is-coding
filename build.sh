@@ -524,6 +524,103 @@ detect_and_repair_corruption() {
     return 0
 }
 
+# Advanced failure recovery with smart retry logic
+smart_retry_build() {
+    local max_retries=3
+    local retry_count=0
+    local backoff_delay=5
+    
+    while [[ $retry_count -lt $max_retries ]]; do
+        print_status $BLUE "🔄 Build attempt $((retry_count + 1)) of $max_retries"
+        
+        # Attempt build with corruption detection
+        if detect_and_repair_corruption; then
+            return 0
+        fi
+        
+        retry_count=$((retry_count + 1))
+        
+        if [[ $retry_count -lt $max_retries ]]; then
+            print_status $YELLOW "⏱️  Waiting ${backoff_delay}s before retry..."
+            sleep $backoff_delay
+            backoff_delay=$((backoff_delay * 2))  # Exponential backoff
+            
+            # Clear corrupted build directory for retry
+            rm -rf "$BUILD_DIR" 2>/dev/null || true
+        fi
+    done
+    
+    print_status $RED "❌ Build failed after $max_retries attempts"
+    return 1
+}
+
+# Enhanced backup verification with content checks
+verify_backup_integrity_enhanced() {
+    local backup_dir="$1"
+    
+    if [[ ! -d "$backup_dir" ]]; then
+        return 1
+    fi
+    
+    # Check essential files exist
+    local essential_files=("index.html" "slides.html")
+    for file in "${essential_files[@]}"; do
+        if [[ ! -f "$backup_dir/$file" ]]; then
+            return 1
+        fi
+        
+        # Check file is not empty
+        if [[ ! -s "$backup_dir/$file" ]]; then
+            return 1
+        fi
+        
+        # Check file contains expected content
+        if [[ "$file" == *.html ]]; then
+            if ! grep -q "<!DOCTYPE\|<html" "$backup_dir/$file" 2>/dev/null; then
+                return 1
+            fi
+        fi
+    done
+    
+    # Check total file count is reasonable
+    local file_count=$(find "$backup_dir" -type f | wc -l)
+    if [[ $file_count -lt 5 ]]; then
+        return 1
+    fi
+    
+    return 0
+}
+
+# System resource monitoring
+monitor_system_resources() {
+    local warn_disk_threshold=90
+    local warn_memory_threshold=80
+    
+    # Check disk space
+    if command_exists df; then
+        local disk_usage=$(df . | awk 'NR==2 {print $5}' | sed 's/%//')
+        if [[ $disk_usage -gt $warn_disk_threshold ]]; then
+            print_status $YELLOW "⚠️  Warning: Disk usage is ${disk_usage}% (threshold: ${warn_disk_threshold}%)"
+            log_build_event "WARNING: High disk usage: ${disk_usage}%"
+        fi
+    fi
+    
+    # Check memory usage (Linux/macOS)
+    if command_exists free; then
+        local mem_usage=$(free | awk 'NR==2{printf "%.0f", $3*100/($3+$7)}')
+        if [[ $mem_usage -gt $warn_memory_threshold ]]; then
+            print_status $YELLOW "⚠️  Warning: Memory usage is ${mem_usage}% (threshold: ${warn_memory_threshold}%)"
+            log_build_event "WARNING: High memory usage: ${mem_usage}%"
+        fi
+    elif command_exists vm_stat; then  # macOS alternative
+        local mem_pressure=$(vm_stat | awk '/Pages free/ {free=$3} /Pages active/ {active=$3} /Pages inactive/ {inactive=$3} END {print int((active+inactive)*100/(free+active+inactive))}')
+        if [[ $mem_pressure -gt $warn_memory_threshold ]]; then
+            print_status $YELLOW "⚠️  Warning: Memory pressure is high (${mem_pressure}%)"
+            log_build_event "WARNING: High memory pressure: ${mem_pressure}%"
+        fi
+    fi
+}
+
 # Function to run gitnextver if available
 update_version() {
     if command_exists gitnextver; then

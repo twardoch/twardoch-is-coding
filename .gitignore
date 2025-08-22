@@ -65,7 +65,6 @@ __pypackages__/
 *~
 *$py.class
 /site
-uv.lock
 build/
 celerybeat-schedule
 celerybeat.pid
@@ -95,7 +94,6 @@ marimo/_static/
 node_modules/
 nosetests.xml
 npm-debug.log*
-package-lock.json
 parts/
 pip-delete-this-directory.txt
 pip-log.txt
