@@ -1,0 +1,104 @@
+# this_file: .github/workflows/validate-and-deploy.yml
+
+name: Validate and Deploy Conference Materials
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Install Node.js dependencies
+      run: npm ci
+      
+    - name: Install Python dependencies
+      run: |
+        pip install mkdocs mkdocs-material mkdocstrings
+        pip install pymdown-extensions
+        
+    - name: Run validation
+      run: npm run validate
+      
+    - name: Build all materials
+      run: npm run build-all
+      
+    - name: Upload slides artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: conference-slides
+        path: docs/slides.html
+        
+    - name: Upload documentation artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: conference-docs
+        path: docs/
+        
+  deploy:
+    needs: validate
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+      
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+      
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Install dependencies
+      run: |
+        npm ci
+        pip install mkdocs mkdocs-material mkdocstrings pymdown-extensions
+        
+    - name: Build materials
+      run: npm run build-all
+      
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+      
+    - name: Upload pages artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: docs/
+        
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4

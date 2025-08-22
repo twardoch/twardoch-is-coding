@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+CLAUDE="$HOME/.local/bin/claude"
+"$CLAUDE" --model opusplan --dangerously-skip-permissions --add-dir "/Users/adam/Developer/vcs/github.twardoch/pub" "$@"
+

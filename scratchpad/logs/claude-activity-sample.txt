@@ -1,0 +1,10 @@
+total 112
+drwxr-xr-x@   23 adam  staff    736 Aug 22 19:06 -Users-adam
+drwxr-xr-x     6 adam  staff    192 Aug 17 15:22 -Users-adam--claude
+drwxr-xr-x     7 adam  staff    224 Aug 14 16:23 -Users-adam--claude-hooks
+drwxr-xr-x    10 adam  staff    320 Aug 22 14:47 -Users-adam-bin
+drwxr-xr-x     5 adam  staff    160 Aug 21 02:53 -Users-adam-bin-img
+drwxr-xr-x     3 adam  staff     96 Jul 28 21:29 -Users-adam-Developer-llm-2507-250728
+drwxr-xr-x     4 adam  staff    128 Jul 28 21:12 -Users-adam-Developer-llm-2507-250728-codx
+drwxr-xr-x     9 adam  staff    288 Jul 29 13:25 -Users-adam-Developer-llm-2507-marktripy
+drwxr-xr-x     5 adam  staff    160 Aug  2 22:50 -Users-adam-Developer-llm-2507-paf

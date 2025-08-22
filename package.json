@@ -1,0 +1,45 @@
+{
+  "name": "twardoch-is-coding",
+  "version": "1.0.0",
+  "description": "Conference talk: Coding with LLMs - Tools and Techniques for Modern Development",
+  "main": "index.js",
+  "scripts": {
+    "build-slides": "marp src_slides/slides.md --theme src_slides/themes/custom-tech.css --html --output docs/slides.html",
+    "build-slides-pdf": "marp src_slides/slides.md --theme src_slides/themes/custom-tech.css --pdf --output docs/slides.pdf",
+    "build-docs": "cd src_docs && mkdocs build --config-file mkdocs.yml --site-dir ../docs",
+    "serve-slides": "marp src_slides/slides.md --theme src_slides/themes/custom-tech.css --server --port 8080",
+    "serve-docs": "cd src_docs && mkdocs serve --config-file mkdocs.yml",
+    "build-all": "npm run build-slides && npm run build-slides-pdf && npm run build-docs",
+    "validate": "scripts/validate-build.sh",
+    "test": "npm run validate",
+    "dev": "npm run serve-slides",
+    "precommit": "npm run validate",
+    "predeploy": "npm run build-all && npm run validate"
+  },
+  "keywords": [
+    "llm",
+    "ai",
+    "coding",
+    "development",
+    "claude",
+    "cursor",
+    "mcp",
+    "conference",
+    "talk"
+  ],
+  "author": "Adam Twardoch",
+  "license": "MIT",
+  "devDependencies": {
+    "@marp-team/marp-cli": "^3.4.0",
+    "@marp-team/marpit": "^2.6.1"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/twardoch/twardoch-is-coding.git"
+  },
+  "bugs": {
+    "url": "https://github.com/twardoch/twardoch-is-coding/issues"
+  },
+  "homepage": "https://twardoch.github.io/twardoch-is-coding/"
+}

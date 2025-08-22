@@ -1,0 +1,15 @@
+/Users/adam/Developer/vcs/github.twardoch/pub/phiton/.specstory
+/Users/adam/Developer/vcs/github.twardoch/pub/mytypy/workdata/pyxplod/.specstory
+/Users/adam/Developer/vcs/github.twardoch/pub/macdefaultbrowser/.specstory
+/Users/adam/Developer/vcs/github.twardoch/pub/jiter_pupy/.specstory
+/Users/adam/Developer/vcs/github.twardoch/pub/imgcolorshine/.specstory
+/Users/adam/Developer/vcs/github.twardoch/pub/boabro/.specstory
+/Users/adam/Developer/vcs/github.twardoch/pub/boabro/_private/.specstory
+/Users/adam/Developer/vcs/github.twardoch/pub/boabro/_private/report/.specstory
+/Users/adam/Developer/vcs/github.twardoch/pub/boabro/_private/report/examples/samp2/samp-shadcn/.specstory
+/Users/adam/Developer/vcs/github.twardoch/pub/boabro/_private/report/examples/.specstory
+/Users/adam/Developer/vcs/github.twardoch/pub/uzpy copy/.specstory
+/Users/adam/Developer/vcs/github.twardoch/pub/pdf22md/.specstory
+/Users/adam/Developer/vcs/github.twardoch/pub/pyxplod/.specstory
+/Users/adam/Developer/vcs/github.twardoch/pub/qlith/.specstory
+/Users/adam/Developer/vcs/github.twardoch/pub/didyouget.it/.specstory

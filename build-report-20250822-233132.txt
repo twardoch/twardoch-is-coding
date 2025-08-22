@@ -1,0 +1,25 @@
+Build Validation Report
+======================
+Date: Fri Aug 22 23:31:32 CEST 2025
+Project: twardoch-is-coding
+
+Files generated:
+total 192
+drwxr-xr-x  12 adam  staff    384 Aug 22 23:31 .
+drwxr-xr-x  25 adam  staff    800 Aug 22 23:31 ..
+-rw-r--r--   1 adam  staff  36871 Aug 22 23:31 404.html
+drwxr-xr-x   6 adam  staff    192 Aug 22 23:31 assets
+-rw-r--r--   1 adam  staff  47667 Aug 22 23:31 index.html
+drwxr-xr-x   3 adam  staff     96 Aug 22 23:31 llm
+drwxr-xr-x   3 adam  staff     96 Aug 22 23:31 mcp
+drwxr-xr-x   3 adam  staff     96 Aug 22 23:31 projects
+drwxr-xr-x   3 adam  staff     96 Aug 22 23:31 search
+-rw-r--r--   1 adam  staff    812 Aug 22 23:31 sitemap.xml
+-rw-r--r--   1 adam  staff    254 Aug 22 23:31 sitemap.xml.gz
+drwxr-xr-x   3 adam  staff     96 Aug 22 23:31 tools
+
+Dependencies:
+twardoch-is-coding@1.0.0 /Users/adam/Developer/vcs/github.twardoch/pub/twardoch-is-coding
+├── @marp-team/marp-cli@3.4.0
+└── @marp-team/marpit@2.6.1
+

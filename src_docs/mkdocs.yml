@@ -1,0 +1,131 @@
+# this_file: src_docs/mkdocs.yml
+
+site_name: "Coding with LLMs: Tools and Techniques for Modern Development"
+site_description: "Conference talk documentation covering LLM fundamentals, AI coding tools, and practical development workflows"
+site_author: "Adam Twardoch"
+site_url: "https://twardoch.github.io/twardoch-is-coding/"
+
+repo_name: "twardoch/twardoch-is-coding"
+repo_url: "https://github.com/twardoch/twardoch-is-coding"
+
+theme:
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      primary: blue grey
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: blue grey
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+
+plugins:
+  - search
+  - mkdocstrings
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: twardoch
+      repo: twardoch-is-coding
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+nav:
+  - Home: index.md
+  - Talk Overview:
+    - Introduction: talk/introduction.md
+    - Structure: talk/structure.md
+    - Audience: talk/audience.md
+  - LLM Fundamentals:
+    - How LLMs Work: llm/fundamentals.md
+    - Tokenization: llm/tokenization.md
+    - Embeddings: llm/embeddings.md
+    - Transformer Architecture: llm/transformer.md
+    - Attention Mechanism: llm/attention.md
+  - Development Tools:
+    - IDE vs CLI Paradigms: tools/paradigms.md
+    - VSCode & GitHub Copilot: tools/vscode-copilot.md
+    - Cursor IDE: tools/cursor.md
+    - Claude Code: tools/claude-code.md
+    - Gemini CLI: tools/gemini-cli.md
+    - Tool Comparison: tools/comparison.md
+  - MCP Protocol:
+    - Introduction to MCP: mcp/introduction.md
+    - Simple vs Agentic APIs: mcp/simple-vs-agentic.md
+    - MCP Servers: mcp/servers.md
+    - Real-world Examples: mcp/examples.md
+  - Real Projects:
+    - Project Overview: projects/overview.md
+    - pdf22png Case Study: projects/pdf22png.md
+    - claif-packages Ecosystem: projects/claif-packages.md
+    - vttiro Development: projects/vttiro.md
+    - Workflow Evolution: projects/workflow-evolution.md
+  - Practical Workflows:
+    - Best Practices: workflows/best-practices.md
+    - Tool Integration: workflows/integration.md
+    - Security Considerations: workflows/security.md
+    - Configuration Examples: workflows/configuration.md
+  - Resources:
+    - References: resources/references.md
+    - Further Reading: resources/further-reading.md
+    - Tools & Links: resources/tools-links.md
+    - Community: resources/community.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/twardoch
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/adamtwar
+    - icon: fontawesome/solid/globe
+      link: https://twardoch.com
+
+copyright: "Copyright &copy; 2025 Adam Twardoch"

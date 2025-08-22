@@ -1,0 +1,358 @@
+/* this_file: src_slides/themes/custom-tech.css */
+
+/* Custom Tech Theme for LLM Conference Talk */
+
+/* Base theme settings */
+@theme "default";
+
+:root {
+  --primary-color: #2196f3;
+  --secondary-color: #00bcd4;
+  --accent-color: #ff9800;
+  --background-dark: #1e1e1e;
+  --background-light: #2d2d30;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --text-accent: #ffffff;
+  --code-background: #2d2d30;
+  --border-color: #404040;
+}
+
+/* Global section styling */
+section {
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  font-size: 28px;
+  line-height: 1.6;
+  background: linear-gradient(135deg, var(--background-dark) 0%, var(--background-light) 100%);
+  color: var(--text-primary);
+  padding: 40px;
+}
+
+/* Headers */
+h1 {
+  color: var(--primary-color);
+  font-size: 3em;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+h2 {
+  color: var(--secondary-color);
+  font-size: 2.2em;
+  font-weight: 600;
+  margin-bottom: 0.6em;
+}
+
+h3 {
+  color: var(--text-primary);
+  font-size: 1.8em;
+  font-weight: 500;
+  margin-bottom: 0.7em;
+}
+
+/* Code styling */
+code {
+  background: var(--code-background);
+  color: #f8f8f2;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+pre {
+  background: var(--code-background);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5em;
+  overflow-x: auto;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.8em;
+  line-height: 1.4;
+}
+
+/* Lists */
+ul, ol {
+  padding-left: 1.5em;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  background: var(--primary-color);
+  color: white;
+  font-weight: 600;
+}
+
+/* Special section classes */
+
+/* Title slide */
+section.title {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(45deg, #1e3c72 0%, #2a5298 100%);
+}
+
+section.title h1 {
+  font-size: 4em;
+  margin-bottom: 0.3em;
+  color: white;
+}
+
+section.title h2 {
+  font-size: 2.5em;
+  color: var(--secondary-color);
+  font-weight: 400;
+}
+
+/* Section dividers */
+section.section-divider {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+}
+
+section.section-divider h1 {
+  font-size: 5em;
+  color: white;
+  margin-bottom: 0.2em;
+}
+
+section.section-divider h2 {
+  font-size: 2.8em;
+  color: rgba(255,255,255,0.9);
+  font-weight: 300;
+}
+
+/* Agenda slide */
+section.agenda {
+  background: var(--background-dark);
+}
+
+section.agenda ol {
+  font-size: 1.3em;
+  line-height: 1.8;
+}
+
+section.agenda li {
+  margin-bottom: 0.8em;
+}
+
+section.agenda strong {
+  color: var(--primary-color);
+}
+
+/* Content slides */
+section.content {
+  background: var(--background-dark);
+}
+
+/* Comparison slides */
+section.comparison h1 {
+  margin-bottom: 1em;
+}
+
+section.comparison ul {
+  font-size: 1.1em;
+}
+
+section.comparison li {
+  margin-bottom: 0.8em;
+}
+
+/* Comparison table */
+section.comparison-table table {
+  font-size: 0.9em;
+}
+
+section.comparison-table th {
+  background: var(--secondary-color);
+}
+
+/* Timeline */
+section.timeline ol {
+  font-size: 1.2em;
+  line-height: 1.8;
+  counter-reset: timeline;
+}
+
+section.timeline li {
+  counter-increment: timeline;
+  margin-bottom: 1em;
+  position: relative;
+  padding-left: 2em;
+}
+
+section.timeline li::before {
+  content: counter(timeline);
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: var(--primary-color);
+  color: white;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.8em;
+}
+
+/* Case studies */
+section.case-studies h2 {
+  color: var(--accent-color);
+  margin-bottom: 0.5em;
+}
+
+section.case-studies ul {
+  font-size: 1.1em;
+}
+
+/* Lessons learned */
+section.lessons ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+section.lessons li {
+  position: relative;
+  padding-left: 2em;
+  margin-bottom: 1em;
+  font-size: 1.1em;
+}
+
+section.lessons li::before {
+  content: "✅";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.2em;
+}
+
+/* Conclusion */
+section.conclusion {
+  background: linear-gradient(135deg, var(--background-dark) 0%, #1a237e 100%);
+}
+
+section.conclusion ol {
+  font-size: 1.2em;
+  line-height: 1.8;
+}
+
+/* Resources */
+section.resources {
+  background: var(--background-light);
+}
+
+section.resources p {
+  font-size: 1.1em;
+  line-height: 1.8;
+}
+
+/* Thank you slide */
+section.thank-you {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(45deg, #2e7d32 0%, #388e3c 100%);
+}
+
+section.thank-you h1 {
+  font-size: 4.5em;
+  color: white;
+  margin-bottom: 0.3em;
+}
+
+section.thank-you h2 {
+  font-size: 2.8em;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 1em;
+}
+
+/* Pagination */
+section::after {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  font-size: 0.7em;
+  color: var(--text-secondary);
+}
+
+/* Mermaid diagrams */
+.mermaid {
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+/* Highlight important text */
+strong {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+em {
+  color: var(--secondary-color);
+  font-style: italic;
+}
+
+/* Links */
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1280px) {
+  section {
+    font-size: 24px;
+    padding: 30px;
+  }
+  
+  h1 {
+    font-size: 2.5em;
+  }
+  
+  h2 {
+    font-size: 2em;
+  }
+}
