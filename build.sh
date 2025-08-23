@@ -1046,7 +1046,7 @@ build_slides() {
         # Check if slides file was created
         if [[ -f "$BUILD_DIR/slides.html" ]]; then
             SIZE=$(du -h "$BUILD_DIR/slides.html" | cut -f1)
-            print_status $GREEN "   📄 Slides: $BUILD_DIR/slides.html ($SIZE)"
+            print_status $GREEN "   📄 HTML Slides: docs/slides.html ($SIZE)"
         fi
     else
         print_status $RED "❌ Slide build failed"
@@ -1060,7 +1060,7 @@ build_slides() {
         
         if [[ $? -eq 0 ]] && [[ -f "$BUILD_DIR/slides.pdf" ]]; then
             SIZE=$(du -h "$BUILD_DIR/slides.pdf" | cut -f1)
-            print_status $GREEN "✅ PDF slides built: $BUILD_DIR/slides.pdf ($SIZE)"
+            print_status $GREEN "✅ PDF slides built: docs/slides.pdf ($SIZE)"
         else
             print_status $YELLOW "⚠️  PDF slide build failed or skipped"
         fi
@@ -1091,7 +1091,7 @@ build_documentation() {
         
         # Check if index was created
         if [[ -f "$BUILD_DIR/index.html" ]]; then
-            print_status $GREEN "   📄 Documentation: $BUILD_DIR/index.html"
+            print_status $GREEN "   📄 Documentation: docs/index.html"
         fi
         
         # Report on documentation size
@@ -1839,7 +1839,24 @@ main() {
     
     print_header "BUILD COMPLETED SUCCESSFULLY"
     print_status $GREEN "⏱️  Total build time: ${BUILD_TIME} seconds"
-    print_status $GREEN "🎯 Output directory: $BUILD_DIR/"
+    
+    # Display deliverable paths
+    print_status $CYAN "📦 DELIVERABLES:"
+    if [[ -f "$BUILD_DIR/slides.html" ]]; then
+        local slides_size=$(du -h "$BUILD_DIR/slides.html" | cut -f1)
+        print_status $GREEN "   🎨 HTML Slides: docs/slides.html ($slides_size)"
+    fi
+    if [[ -f "$BUILD_DIR/slides/slides.pdf" ]]; then
+        local pdf_size=$(du -h "$BUILD_DIR/slides/slides.pdf" | cut -f1)
+        print_status $GREEN "   📄 PDF Slides:  docs/slides/slides.pdf ($pdf_size)"
+    fi
+    if [[ -f "$BUILD_DIR/index.html" ]]; then
+        local docs_size=$(du -h "$BUILD_DIR/index.html" | cut -f1)
+        print_status $GREEN "   📚 Documentation: docs/index.html ($docs_size)"
+    fi
+    local total_size=$(du -sh "$BUILD_DIR" 2>/dev/null | cut -f1)
+    print_status $GREEN "   📊 Total build size: $total_size"
+    
     print_status $GREEN "🚀 Ready for deployment!"
     
     # Performance insights

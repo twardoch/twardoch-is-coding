@@ -21,8 +21,8 @@
 /* Global section styling */
 section {
   font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
-  font-size: 28px;
-  line-height: 1.6;
+  font-size: 24px;
+  line-height: 1.4;
   background: linear-gradient(135deg, var(--background-dark) 0%, var(--background-light) 100%);
   color: var(--text-primary);
   padding: 40px;
@@ -31,24 +31,27 @@ section {
 /* Headers */
 h1 {
   color: var(--primary-color);
-  font-size: 3em;
+  font-size: 2.6em;
   font-weight: 700;
   margin-bottom: 0.5em;
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  line-height: 1.2;
 }
 
 h2 {
   color: var(--secondary-color);
-  font-size: 2.2em;
+  font-size: 1.9em;
   font-weight: 600;
   margin-bottom: 0.6em;
+  line-height: 1.3;
 }
 
 h3 {
   color: var(--text-primary);
-  font-size: 1.8em;
+  font-size: 1.5em;
   font-weight: 500;
   margin-bottom: 0.7em;
+  line-height: 1.3;
 }
 
 /* Code styling */
@@ -73,8 +76,150 @@ pre {
 pre code {
   background: none;
   padding: 0;
-  font-size: 0.8em;
-  line-height: 1.4;
+  font-size: 0.75em;
+  line-height: 1.3;
+}
+
+/* Syntax highlighting - VS Code Dark+ theme colors */
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+  color: #d4d4d4;
+  background: var(--code-background);
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #6a9955;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal {
+  color: #569cd6;
+}
+
+.hljs-string,
+.hljs-doctag {
+  color: #ce9178;
+}
+
+.hljs-number,
+.hljs-regexp {
+  color: #b5cea8;
+}
+
+.hljs-title,
+.hljs-section {
+  color: #dcdcaa;
+}
+
+.hljs-class .hljs-title {
+  color: #4ec9b0;
+}
+
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable {
+  color: #9cdcfe;
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link {
+  color: #ffd700;
+}
+
+.hljs-built_in,
+.hljs-type {
+  color: #4ec9b0;
+}
+
+.hljs-meta {
+  color: #c586c0;
+}
+
+.hljs-meta-string {
+  color: #ce9178;
+}
+
+.hljs-function .hljs-title {
+  color: #dcdcaa;
+}
+
+.hljs-params {
+  color: #d4d4d4;
+}
+
+/* Language-specific improvements */
+.hljs-python .hljs-keyword {
+  color: #569cd6;
+  font-weight: bold;
+}
+
+.hljs-python .hljs-built_in {
+  color: #4ec9b0;
+}
+
+.hljs-python .hljs-string {
+  color: #ce9178;
+}
+
+.hljs-javascript .hljs-keyword {
+  color: #569cd6;
+}
+
+.hljs-javascript .hljs-function {
+  color: #569cd6;
+}
+
+.hljs-javascript .hljs-title {
+  color: #dcdcaa;
+}
+
+.hljs-bash .hljs-built_in {
+  color: #4ec9b0;
+}
+
+.hljs-bash .hljs-variable {
+  color: #9cdcfe;
+}
+
+.hljs-json .hljs-attr {
+  color: #9cdcfe;
+}
+
+.hljs-json .hljs-string {
+  color: #ce9178;
+}
+
+.hljs-yaml .hljs-attr {
+  color: #9cdcfe;
+}
+
+.hljs-yaml .hljs-string {
+  color: #ce9178;
+}
+
+.hljs-mermaid .hljs-keyword {
+  color: #569cd6;
+}
+
+/* Markdown code block improvements */
+.hljs-markdown .hljs-code {
+  color: #ce9178;
+}
+
+.hljs-markdown .hljs-strong {
+  color: #569cd6;
+  font-weight: bold;
+}
+
+.hljs-markdown .hljs-emphasis {
+  color: #9cdcfe;
+  font-style: italic;
 }
 
 /* Lists */
@@ -121,15 +266,17 @@ section.title {
 }
 
 section.title h1 {
-  font-size: 4em;
+  font-size: 3.4em;
   margin-bottom: 0.3em;
   color: white;
+  line-height: 1.1;
 }
 
 section.title h2 {
-  font-size: 2.5em;
+  font-size: 2.1em;
   color: var(--secondary-color);
   font-weight: 400;
+  line-height: 1.2;
 }
 
 /* Section dividers */
@@ -143,15 +290,17 @@ section.section-divider {
 }
 
 section.section-divider h1 {
-  font-size: 5em;
+  font-size: 4.2em;
   color: white;
   margin-bottom: 0.2em;
+  line-height: 1.1;
 }
 
 section.section-divider h2 {
-  font-size: 2.8em;
+  font-size: 2.4em;
   color: rgba(255,255,255,0.9);
   font-weight: 300;
+  line-height: 1.2;
 }
 
 /* Agenda slide */
@@ -160,8 +309,8 @@ section.agenda {
 }
 
 section.agenda ol {
-  font-size: 1.3em;
-  line-height: 1.8;
+  font-size: 1.1em;
+  line-height: 1.5;
 }
 
 section.agenda li {
@@ -201,8 +350,8 @@ section.comparison-table th {
 
 /* Timeline */
 section.timeline ol {
-  font-size: 1.2em;
-  line-height: 1.8;
+  font-size: 1.0em;
+  line-height: 1.5;
   counter-reset: timeline;
 }
 

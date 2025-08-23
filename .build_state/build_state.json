@@ -1,13 +1,13 @@
 {
-    "timestamp": "2025-08-23T02:11:41+02:00",
+    "timestamp": "2025-08-23T02:22:13+02:00",
     "stage": "build_started",
     "status": "in_progress",
-    "pid": 70438,
+    "pid": 86011,
     "details": "Build process initiated",
     "build_mode": "production",
     "options": {
         "build_pdf": "false",
-        "clean_build": "true",
+        "clean_build": "false",
         "dev_mode": "false",
         "skip_optimize": "false"
     }
