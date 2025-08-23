@@ -4,10 +4,10 @@
   "description": "Conference talk: Coding with LLMs - Tools and Techniques for Modern Development",
   "main": "index.js",
   "scripts": {
-    "build-slides": "mkdir -p src_docs/docs/slides && marp src_slides/slides.md --theme src_slides/themes/custom-tech.css --html --output src_docs/docs/slides/index.html",
-    "build-slides-pdf": "mkdir -p src_docs/docs/slides && marp src_slides/slides.md --theme src_slides/themes/custom-tech.css --pdf --output src_docs/docs/slides/slides.pdf",
+    "build-slides": "mkdir -p src_docs/docs/slides && marp src_slides/slides.md --config-file marp.config.js --theme src_slides/themes/custom-tech.css --html --output src_docs/docs/slides/index.html",
+    "build-slides-pdf": "mkdir -p src_docs/docs/slides && marp src_slides/slides.md --config-file marp.config.js --theme src_slides/themes/custom-tech.css --pdf --output src_docs/docs/slides/slides.pdf",
     "build-docs": "npm run build-slides && npm run build-slides-pdf && cd src_docs && mkdocs build --config-file mkdocs.yml --site-dir ../docs",
-    "serve-slides": "marp src_slides/slides.md --theme src_slides/themes/custom-tech.css --server --port 8080",
+    "serve-slides": "marp src_slides/slides.md --config-file marp.config.js --theme src_slides/themes/custom-tech.css --server --port 8080",
     "serve-docs": "cd src_docs && mkdocs serve --config-file mkdocs.yml",
     "build-all": "npm run build-docs",
     "validate": "scripts/validate-build.sh",
@@ -31,9 +31,25 @@
   "license": "MIT",
   "devDependencies": {
     "@marp-team/marp-cli": "^3.4.0",
-    "@marp-team/marpit": "^2.6.1"
+    "@marp-team/marpit": "^2.6.1",
+    "@mdit/plugin-alert": "^0.22.2",
+    "@mdit/plugin-align": "^0.22.1",
+    "@mdit/plugin-attrs": "^0.23.1",
+    "@mdit/plugin-embed": "^0.22.1",
+    "@mdit/plugin-icon": "^0.22.1",
+    "@mdit/plugin-include": "^0.22.1",
+    "@mdit/plugin-ins": "^0.22.1",
+    "@mdit/plugin-mark": "^0.22.1",
+    "@mdit/plugin-plantuml": "^0.22.2",
+    "@mdit/plugin-stylize": "^0.22.1",
+    "@mdit/plugin-tab": "^0.22.2",
+    "markdown-it": "^14.1.0",
+    "markdown-it-attrs": "^4.3.1",
+    "markdown-it-container": "^4.0.0",
+    "markdown-it-highlightjs": "^4.2.0",
+    "markdown-it-ins": "^4.0.0",
+    "markdown-it-mark": "^4.0.0"
   },
-  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/twardoch/twardoch-is-coding.git"

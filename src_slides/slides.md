@@ -1202,6 +1202,40 @@ def find_user(users, name):
 
 ---
 
+<!-- _class: demo-features -->
+
+# Plugin Features Demo
+
+::: info
+**Info alerts** work with the container plugin
+:::
+
+::: tip
+**Tips** provide helpful guidance
+:::
+
+::: warning
+**Warnings** highlight potential issues
+:::
+
+==Highlighted text== using the **mark plugin**
+
+++Inserted content++ using the **ins plugin**
+
+```python
+def hello_world():
+    """Syntax highlighting with highlightjs plugin"""
+    print("Hello, World!")
+```
+
+**Working plugins:**
+- Container (info, tip, warning, danger, center)
+- Mark (==highlight==) and Ins (++insert++)
+- Highlight.js for code syntax highlighting
+- Attrs for additional element attributes
+
+---
+
 <!-- _class: thank-you-extended -->
 
 # Extended Q&A Session

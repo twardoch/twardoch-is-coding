@@ -2,6 +2,9 @@
 # this_file: CLAUDE.md
 ---
 
+IMPORTANT: DO NOT ADD "enterprise code". DO NOT ADD "validation" or "security checks" or other code that ONLY BLOATS THE CODEBASE. FOCUS ON THE MINIMAL VIABLE NEXT VERSION. FOCUS ON THE CORE FUNCTIONALITY. THIS IS YOUR PRIME DIRECTIVE. TEST FREQUENTLY, and TEST WITH REAL DATA, not MOCK DATA. Do not fear using real APIs. 
+
+
 # Project Rationale & Task Analysis: "Coding with LLMs" Conference
 
 ## 1. 🎯 **Project Rationale**

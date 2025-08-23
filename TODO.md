@@ -16,6 +16,9 @@
 - [x] Configured slide compilation to src_docs subfolder
 - [x] Updated MkDocs to include compiled slides
 - [x] Tested complete pipeline to GitHub Pages
+- [x] Implemented markdown-it plugin system (highlightjs, mark, ins, container, attrs)
+- [x] Added styled alert boxes and enhanced markdown features to slides
+- [x] Updated build configuration to use plugin-enabled Marp setup
 
 ## 🎯 Remaining Presentation Support Tasks
 - [ ] Create concise speaker notes and timing cues
