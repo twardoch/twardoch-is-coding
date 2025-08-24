@@ -1,0 +1,674 @@
+/* this_file: src_slides/themes/custom-tech.css */
+
+/* Custom Tech Theme for LLM Conference Talk */
+
+/* Base theme settings */
+@theme "default";
+
+:root {
+  --primary-color: #2196f3;
+  --secondary-color: #00bcd4;
+  --accent-color: #ff9800;
+  --background-dark: #1e1e1e;
+  --background-light: #2d2d30;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --text-accent: #ffffff;
+  --code-background: #2d2d30;
+  --border-color: #404040;
+}
+
+/* Global section styling */
+section {
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  font-size: 24px;
+  line-height: 1.4;
+  background: linear-gradient(135deg, var(--background-dark) 0%, var(--background-light) 100%);
+  color: var(--text-primary);
+  padding: 40px;
+}
+
+/* Headers */
+h1 {
+  color: var(--primary-color);
+  font-size: 2.6em;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  line-height: 1.2;
+}
+
+h2 {
+  color: var(--secondary-color);
+  font-size: 1.9em;
+  font-weight: 600;
+  margin-bottom: 0.6em;
+  line-height: 1.3;
+}
+
+h3 {
+  color: var(--text-primary);
+  font-size: 1.5em;
+  font-weight: 500;
+  margin-bottom: 0.7em;
+  line-height: 1.3;
+}
+
+/* Code styling */
+code {
+  background: var(--code-background);
+  color: #f8f8f2;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+pre {
+  background: var(--code-background);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5em;
+  overflow-x: auto;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.75em;
+  line-height: 1.3;
+}
+
+/* Syntax highlighting - VS Code Dark+ theme colors */
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+  color: #d4d4d4;
+  background: var(--code-background);
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #6a9955;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal {
+  color: #569cd6;
+}
+
+.hljs-string,
+.hljs-doctag {
+  color: #ce9178;
+}
+
+.hljs-number,
+.hljs-regexp {
+  color: #b5cea8;
+}
+
+.hljs-title,
+.hljs-section {
+  color: #dcdcaa;
+}
+
+.hljs-class .hljs-title {
+  color: #4ec9b0;
+}
+
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable {
+  color: #9cdcfe;
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link {
+  color: #ffd700;
+}
+
+.hljs-built_in,
+.hljs-type {
+  color: #4ec9b0;
+}
+
+.hljs-meta {
+  color: #c586c0;
+}
+
+.hljs-meta-string {
+  color: #ce9178;
+}
+
+.hljs-function .hljs-title {
+  color: #dcdcaa;
+}
+
+.hljs-params {
+  color: #d4d4d4;
+}
+
+/* Language-specific improvements */
+.hljs-python .hljs-keyword {
+  color: #569cd6;
+  font-weight: bold;
+}
+
+.hljs-python .hljs-built_in {
+  color: #4ec9b0;
+}
+
+.hljs-python .hljs-string {
+  color: #ce9178;
+}
+
+.hljs-javascript .hljs-keyword {
+  color: #569cd6;
+}
+
+.hljs-javascript .hljs-function {
+  color: #569cd6;
+}
+
+.hljs-javascript .hljs-title {
+  color: #dcdcaa;
+}
+
+.hljs-bash .hljs-built_in {
+  color: #4ec9b0;
+}
+
+.hljs-bash .hljs-variable {
+  color: #9cdcfe;
+}
+
+.hljs-json .hljs-attr {
+  color: #9cdcfe;
+}
+
+.hljs-json .hljs-string {
+  color: #ce9178;
+}
+
+.hljs-yaml .hljs-attr {
+  color: #9cdcfe;
+}
+
+.hljs-yaml .hljs-string {
+  color: #ce9178;
+}
+
+.hljs-mermaid .hljs-keyword {
+  color: #569cd6;
+}
+
+/* Markdown code block improvements */
+.hljs-markdown .hljs-code {
+  color: #ce9178;
+}
+
+.hljs-markdown .hljs-strong {
+  color: #569cd6;
+  font-weight: bold;
+}
+
+.hljs-markdown .hljs-emphasis {
+  color: #9cdcfe;
+  font-style: italic;
+}
+
+/* Lists */
+ul, ol {
+  padding-left: 1.5em;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  background: var(--primary-color);
+  color: white;
+  font-weight: 600;
+}
+
+/* Special section classes */
+
+/* Title slide */
+section.title {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(45deg, #1e3c72 0%, #2a5298 100%);
+}
+
+section.title h1 {
+  font-size: 3.4em;
+  margin-bottom: 0.3em;
+  color: white;
+  line-height: 1.1;
+}
+
+section.title h2 {
+  font-size: 2.1em;
+  color: var(--secondary-color);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+/* Section dividers */
+section.section-divider {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+}
+
+section.section-divider h1 {
+  font-size: 4.2em;
+  color: white;
+  margin-bottom: 0.2em;
+  line-height: 1.1;
+}
+
+section.section-divider h2 {
+  font-size: 2.4em;
+  color: rgba(255,255,255,0.9);
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+/* Agenda slide */
+section.agenda {
+  background: var(--background-dark);
+}
+
+section.agenda ol {
+  font-size: 1.1em;
+  line-height: 1.5;
+}
+
+section.agenda li {
+  margin-bottom: 0.8em;
+}
+
+section.agenda strong {
+  color: var(--primary-color);
+}
+
+/* Content slides */
+section.content {
+  background: var(--background-dark);
+}
+
+/* Comparison slides */
+section.comparison h1 {
+  margin-bottom: 1em;
+}
+
+section.comparison ul {
+  font-size: 1.1em;
+}
+
+section.comparison li {
+  margin-bottom: 0.8em;
+}
+
+/* Comparison table */
+section.comparison-table table {
+  font-size: 0.9em;
+}
+
+section.comparison-table th {
+  background: var(--secondary-color);
+}
+
+/* Timeline */
+section.timeline ol {
+  font-size: 1.0em;
+  line-height: 1.5;
+  counter-reset: timeline;
+}
+
+section.timeline li {
+  counter-increment: timeline;
+  margin-bottom: 1em;
+  position: relative;
+  padding-left: 2em;
+}
+
+section.timeline li::before {
+  content: counter(timeline);
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: var(--primary-color);
+  color: white;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.8em;
+}
+
+/* Case studies */
+section.case-studies h2 {
+  color: var(--accent-color);
+  margin-bottom: 0.5em;
+}
+
+section.case-studies ul {
+  font-size: 1.1em;
+}
+
+/* Lessons learned */
+section.lessons ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+section.lessons li {
+  position: relative;
+  padding-left: 2em;
+  margin-bottom: 1em;
+  font-size: 1.1em;
+}
+
+section.lessons li::before {
+  content: "✅";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.2em;
+}
+
+/* Conclusion */
+section.conclusion {
+  background: linear-gradient(135deg, var(--background-dark) 0%, #1a237e 100%);
+}
+
+section.conclusion ol {
+  font-size: 1.2em;
+  line-height: 1.8;
+}
+
+/* Resources */
+section.resources {
+  background: var(--background-light);
+}
+
+section.resources p {
+  font-size: 1.1em;
+  line-height: 1.8;
+}
+
+/* Thank you slide */
+section.thank-you {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(45deg, #2e7d32 0%, #388e3c 100%);
+}
+
+section.thank-you h1 {
+  font-size: 4.5em;
+  color: white;
+  margin-bottom: 0.3em;
+}
+
+section.thank-you h2 {
+  font-size: 2.8em;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 1em;
+}
+
+/* Pagination */
+section::after {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  font-size: 0.7em;
+  color: var(--text-secondary);
+}
+
+/* Mermaid diagrams */
+.mermaid {
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+/* Highlight important text */
+strong {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+em {
+  color: var(--secondary-color);
+  font-style: italic;
+}
+
+/* Links */
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Plugin containers */
+.info, .tip, .warning, .danger, .center {
+  border-radius: 8px;
+  padding: 1em;
+  margin: 1em 0;
+  border-left: 4px solid;
+}
+
+.info {
+  background: rgba(33, 150, 243, 0.15);
+  border-left-color: var(--primary-color);
+}
+
+.tip {
+  background: rgba(76, 175, 80, 0.15);
+  border-left-color: #4caf50;
+}
+
+.warning {
+  background: rgba(255, 152, 0, 0.15);
+  border-left-color: var(--accent-color);
+}
+
+.danger {
+  background: rgba(244, 67, 54, 0.15);
+  border-left-color: #f44336;
+}
+
+.center {
+  text-align: center;
+  background: rgba(156, 39, 176, 0.15);
+  border-left-color: #9c27b0;
+}
+
+/* Mark and ins plugins */
+mark {
+  background: rgba(255, 235, 59, 0.3);
+  color: #000;
+  padding: 0.1em 0.2em;
+  border-radius: 3px;
+}
+
+ins {
+  background: rgba(76, 175, 80, 0.2);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.1em 0.2em;
+  border-radius: 3px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1280px) {
+  section {
+    font-size: 24px;
+    padding: 30px;
+  }
+  
+  h1 {
+    font-size: 2.5em;
+  }
+  
+  h2 {
+    font-size: 2em;
+  }
+}
+/* Animation classes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.slide-in {
+  animation: slideIn 0.5s ease-out;
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Enhanced alert styles */
+.alert {
+  padding: 15px 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  border-left: 4px solid;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.alert-info {
+  background: rgba(33, 150, 243, 0.1);
+  border-color: #2196f3;
+}
+
+.alert-tip {
+  background: rgba(76, 175, 80, 0.1);
+  border-color: #4caf50;
+}
+
+.alert-warning {
+  background: rgba(255, 152, 0, 0.1);
+  border-color: #ff9800;
+}
+
+.alert-danger {
+  background: rgba(244, 67, 54, 0.1);
+  border-color: #f44336;
+}
+
+.alert-title {
+  font-weight: 600;
+  margin-bottom: 5px;
+  font-size: 1.1em;
+}
+
+/* Center content */
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Speaker notes styling */
+section.has-notes::after {
+  content: "📝";
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 20px;
+  opacity: 0.5;
+}
+
+/* Math styling */
+.katex {
+  font-size: 1.1em;
+}
+
+.katex-display {
+  margin: 1em 0;
+}
+
+/* Transition effects between slides */
+section {
+  transition: all 0.3s ease;
+}
+
+/* Fragment animations for step-through content */
+.fragment {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.fragment.visible {
+  opacity: 1;
+}
+
+/* Progress bar styling */
+.progress-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--primary-color);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}

@@ -80,7 +80,12 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - 🎤 Conference Slides: slides/index.html
+  - 🎤 Conference Slides:
+    - Overview: slides.md
+    - Marp Presentation: slides/marp/index.html
+    - Slidev Presentation: slides/slidev/index.html
+    - Reveal.js Presentation: slides/revealjs/index.html
+    - MDX Deck Presentation: slides/mdx/index.html
   - LLM Fundamentals:
     - How LLMs Work: llm/fundamentals.md
   - Development Tools:

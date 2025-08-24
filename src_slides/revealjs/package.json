@@ -1,0 +1,18 @@
+{
+  "name": "revealjs-slides",
+  "version": "1.0.0",
+  "description": "Reveal.js presentation with plugins and animations",
+  "scripts": {
+    "start": "reveal-md slides.md --watch",
+    "build": "reveal-md slides.md --static ../../src_docs/docs/slides/revealjs --static-dirs=assets",
+    "pdf": "reveal-md slides.md --print ../../src_docs/docs/slides/revealjs/slides.pdf",
+    "serve": "reveal-md slides.md"
+  },
+  "dependencies": {
+    "reveal.js": "^5.0.4",
+    "reveal-md": "^6.0.1"
+  },
+  "devDependencies": {
+    "highlight.js": "^11.9.0"
+  }
+}

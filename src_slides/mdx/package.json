@@ -1,0 +1,22 @@
+{
+  "name": "mdx-slides",
+  "version": "1.0.0",
+  "description": "MDX Deck presentation with React components",
+  "scripts": {
+    "start": "mdx-deck slides.mdx",
+    "build": "mdx-deck build slides.mdx --out-dir ../../src_docs/docs/slides/mdx",
+    "pdf": "mdx-deck pdf slides.mdx --out-file ../../src_docs/docs/slides/mdx/slides.pdf",
+    "screenshot": "mdx-deck screenshot slides.mdx --out-dir ../../src_docs/docs/slides/mdx/screenshots"
+  },
+  "dependencies": {
+    "mdx-deck": "^4.1.1",
+    "@mdx-deck/themes": "^4.1.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "theme-ui": "^0.16.1"
+  }
+}
