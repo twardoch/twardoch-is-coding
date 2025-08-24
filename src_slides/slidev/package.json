@@ -1,0 +1,27 @@
+{
+  "name": "slidev-slides",
+  "version": "1.0.0",
+  "description": "Interactive Slidev presentation with Vue components",
+  "scripts": {
+    "dev": "slidev --open",
+    "build": "slidev build --base /slides/slidev/ --out ../../src_docs/docs/slides/slidev",
+    "export": "slidev export --output ../../src_docs/docs/slides/slidev/slides.pdf",
+    "preview": "slidev preview"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.47.5",
+    "@slidev/theme-default": "latest",
+    "@slidev/theme-seriph": "latest"
+  },
+  "devDependencies": {
+    "@iconify-json/carbon": "^1.1.28",
+    "@iconify-json/mdi": "^1.1.64",
+    "@iconify-json/ph": "^1.1.11",
+    "@slidev/client": "^0.47.5",
+    "@slidev/types": "^0.47.5",
+    "@vueuse/core": "^10.7.2",
+    "@vueuse/motion": "^2.0.0",
+    "vite": "^5.0.11",
+    "vue": "^3.4.15"
+  }
+}

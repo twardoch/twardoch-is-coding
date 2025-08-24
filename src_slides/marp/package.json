@@ -1,0 +1,26 @@
+{
+  "name": "marp-slides",
+  "version": "1.0.0",
+  "description": "Enhanced Marp presentation with animations and plugins",
+  "scripts": {
+    "build": "marp slides.md --config-file marp.config.js --theme themes/custom-tech.css --html --output ../../src_docs/docs/slides/marp/index.html",
+    "build-pdf": "marp slides.md --config-file marp.config.js --theme themes/custom-tech.css --pdf --output ../../src_docs/docs/slides/marp/slides.pdf",
+    "serve": "marp slides.md --config-file marp.config.js --theme themes/custom-tech.css --server --port 8081",
+    "watch": "marp slides.md --config-file marp.config.js --theme themes/custom-tech.css --watch"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "^3.4.0",
+    "@marp-team/marp-core": "^3.9.0",
+    "@mdit/plugin-alert": "^0.22.2",
+    "@mdit/plugin-attrs": "^0.23.1",
+    "@mdit/plugin-container": "^0.22.2",
+    "@mdit/plugin-ins": "^0.22.1",
+    "@mdit/plugin-mark": "^0.22.1",
+    "markdown-it": "^14.1.0",
+    "markdown-it-attrs": "^4.3.1",
+    "markdown-it-container": "^4.0.0",
+    "markdown-it-highlightjs": "^4.2.0",
+    "markdown-it-ins": "^4.0.0",
+    "markdown-it-mark": "^4.0.0"
+  }
+}

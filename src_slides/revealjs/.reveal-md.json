@@ -1,0 +1,15 @@
+{
+  "theme": "moon",
+  "highlightTheme": "monokai",
+  "transition": "convex",
+  "controls": true,
+  "progress": true,
+  "center": true,
+  "hash": true,
+  "plugins": ["highlight", "notes", "math", "search", "zoom"],
+  "width": 1280,
+  "height": 720,
+  "margin": 0.1,
+  "minScale": 0.2,
+  "maxScale": 2.0
+}

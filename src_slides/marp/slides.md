@@ -1,5 +1,5 @@
 ---
-# this_file: src_slides/slides.md
+# this_file: src_slides/marp/slides.md
 marp: true
 theme: custom-tech
 class: 
@@ -8,6 +8,7 @@ class:
 paginate: true
 backgroundColor: #1e1e1e
 color: #ffffff
+math: katex
 ---
 
 <!-- _class: title -->
@@ -24,6 +25,8 @@ color: #ffffff
 
 # What We'll Cover
 
+<div class="fade-in">
+
 1. **How LLMs Actually Work** *(5 min)*  
    Understanding the mechanics behind the hype
 
@@ -36,7 +39,16 @@ color: #ffffff
 4. **Real Experience** *(3 min)*  
    What actually works after 1000+ sessions
 
+</div>
+
 *Evidence from real projects, not demo code*
+
+<!--
+Speaker notes:
+- Start with concrete evidence: 177 repositories analyzed
+- Emphasize practical focus vs theoretical
+- Set expectations: no silver bullets, just useful tools
+-->
 
 ---
 
@@ -178,6 +190,8 @@ attention_weights = {
     }
 }
 ```
+
+**Mathematical formula**: $\text{Attention}(Q,K,V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$
 
 **In code**: Helps model understand variable scope, function relationships  
 **Limitation**: Still just pattern matching, not semantic understanding
@@ -1218,9 +1232,17 @@ def find_user(users, name):
 **Warnings** highlight potential issues
 :::
 
+::: danger
+**Critical issues** are marked in red
+:::
+
+<div class="center-content">
+
 ==Highlighted text== using the **mark plugin**
 
 ++Inserted content++ using the **ins plugin**
+
+</div>
 
 ```python
 def hello_world():

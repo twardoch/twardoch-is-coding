@@ -1,0 +1,641 @@
+---
+# this_file: src_slides/mdx/slides.mdx
+---
+
+import { Head, Notes, Steps, Appear } from 'mdx-deck'
+import { themes } from '@mdx-deck/themes'
+
+export const theme = {
+  ...themes.dark,
+  colors: {
+    text: '#ffffff',
+    background: '#1e1e1e',
+    primary: '#2196f3',
+    secondary: '#00bcd4',
+    accent: '#ff9800',
+  },
+  fonts: {
+    body: 'system-ui, sans-serif',
+    heading: 'system-ui, sans-serif',
+    monospace: 'Consolas, Monaco, monospace',
+  },
+  fontSizes: [16, 18, 20, 24, 32, 48, 64, 96],
+  space: [0, 4, 8, 16, 32, 64, 128, 256],
+}
+
+<Head>
+  <title>Coding with LLMs - MDX Deck</title>
+  <meta name="description" content="Practical Experience from 177 Repositories" />
+</Head>
+
+# Coding with LLMs
+
+## Practical Experience from 177 Repositories
+
+**Adam Twardoch**  
+*TeX/Context Conference*
+
+<Notes>
+Welcome everyone! Today we'll explore practical insights from using LLM tools across 177 repositories.
+</Notes>
+
+---
+
+## What We'll Cover
+
+<Steps>
+
+1. **How LLMs Actually Work**  
+   Understanding the mechanics behind the hype
+
+2. **IDE vs CLI Paradigms**  
+   When to use what, and why it matters
+
+3. **MCP Protocol**  
+   Connecting tools instead of writing glue code
+
+4. **Real Experience**  
+   What actually works after 1000+ sessions
+
+</Steps>
+
+*Evidence from real projects, not demo code*
+
+---
+
+## Why This Talk Exists
+
+<Appear>
+
+You've been coding longer than "DevOps" has been a word.
+
+You've survived SOAP, REST, microservices, and whatever we're calling distributed monoliths this week.
+
+Now everyone's excited about **"AI coding assistants"** and you're wondering:
+
+**Is this actually useful, or just the latest silver bullet?**
+
+</Appear>
+
+*Based on analysis of 177 repositories over 18 months*
+
+---
+
+# Part 1: LLM Fundamentals
+
+## How these things actually work
+
+---
+
+## What LLMs Actually Are
+
+```javascript
+// Transform pipeline
+const pipeline = [
+  'Text Input',
+  'Tokenization',
+  'Embeddings',
+  'Transformer Layers',
+  'Output Probabilities',
+  'Text Output'
+]
+```
+
+<Appear>
+
+- **Reality check**: Sophisticated autocomplete with pattern matching
+- **Not**: Conscious or understanding code semantics
+- **Is**: Extremely effective at predicting text
+
+</Appear>
+
+---
+
+## Tokenization: Text → Numbers
+
+```python
+# Your code becomes numbers
+text = "def calculate_sum(a, b):"
+tokens = [1834, 11294, 15022, 7, 64, 11, 293, 1782]
+
+# Different models split differently
+"calculate_sum" might become:
+# GPT: ["calcul", "ate", "_", "sum"]  
+# Claude: ["calculate", "_sum"]
+```
+
+**Key insight**: Code tokenization affects model performance  
+**Practical impact**: Some models understand code structure better
+
+---
+
+## Embeddings: Creating Meaning
+
+```python
+# Tokens become high-dimensional vectors
+"function" → [0.1, -0.3, 0.8, 0.2, -0.1, ...]  # 768-4096 dims
+
+# Similar concepts cluster together
+"function"     → [0.2, -0.1, 0.9, 0.1, ...]
+"method"       → [0.3, -0.2, 0.8, 0.2, ...]  # Close
+"banana"       → [-0.5, 0.7, 0.1, -0.8, ...] # Far
+```
+
+**Why this matters**: Models understand relationships  
+**Limitation**: No real semantic understanding
+
+---
+
+## Transformer Architecture
+
+<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '60vh'}}>
+
+```
+Token Embeddings
+      ↓
+Self-Attention
+      ↓
+Add & Normalize
+      ↓
+Feed Forward
+      ↓
+Add & Normalize
+      ↓
+Stack 12-96 more layers
+```
+
+</div>
+
+- **Key advantage**: Parallel processing
+- **Scale**: 12-96 layers
+- **Result**: Long-range dependencies
+
+---
+
+## Self-Attention: The Core
+
+```python
+attention_weights = {
+    "her": {
+        "programmer": 0.8,  # High attention
+        "used": 0.2,
+        "laptop": 0.1
+    }
+}
+```
+
+**Mathematical formula**: `Attention(Q,K,V) = softmax(QK^T/√d_k)V`
+
+**In code**: Helps understand variable scope  
+**Limitation**: Still pattern matching
+
+---
+
+## What This Means for You
+
+<Steps>
+
+### ✅ Excellent for
+- Boilerplate (90%+ success)
+- Configuration files
+- Documentation
+
+### ⚠️ Requires oversight
+- Algorithm implementation
+- Security operations
+- Complex business logic
+
+### ❌ Generally poor at
+- Novel algorithms
+- Runtime debugging
+- Performance optimization
+
+</Steps>
+
+---
+
+# Part 2: IDE vs CLI Paradigms
+
+## Different tools for different jobs
+
+---
+
+## IDE-Based Approach
+
+```javascript
+// Real-time suggestions as you type
+function calculateTax(income, rate) {
+    // Cursor suggests: return income * rate;
+    return income * rate;
+}
+
+const result = calculateTax(50000, 0.2);
+//             ^ Copilot completes parameters
+```
+
+**Strengths**: Immediate feedback, low overhead  
+**Best for**: Individual functions, quick fixes
+
+---
+
+## Cursor: IDE Plus Context
+
+```markdown
+# .cursorrules - project-specific instructions
+- Use TypeScript strict mode
+- Prefer functional components in React  
+- Include JSDoc for all public functions
+```
+
+<Appear>
+
+- **Key difference**: Understands entire codebase
+- **Real capability**: Cross-file refactoring
+- **Experience**: 2-3 weeks to feel natural
+
+</Appear>
+
+---
+
+## CLI-Based Approach
+
+```bash
+# Give it a complex task
+claude "Set up CI/CD pipeline for this Python package"
+
+# It plans, then executes multiple steps:
+# 1. Analyzes project structure
+# 2. Creates .github/workflows/test.yml  
+# 3. Updates pyproject.toml
+```
+
+**Strengths**: Multi-step workflows  
+**Best for**: Project setup, refactoring
+
+---
+
+## Real Usage Patterns
+
+<div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2em'}}>
+
+<div>
+
+**IDE Tools**:
+- Daily coding
+- API exploration
+- Quick bug fixes
+- Learning frameworks
+
+</div>
+
+<div>
+
+**CLI Tools**:
+- Project initialization
+- Large refactors
+- Documentation generation
+- CI/CD pipelines
+
+</div>
+
+</div>
+
+**Reality**: You end up using both
+
+---
+
+## Measured Impact
+
+<div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2em'}}>
+
+<div>
+
+**54 Cursor projects**:
+- 23% faster features
+- 45% less boilerplate
+- 12% more testing
+
+</div>
+
+<div>
+
+**1000+ Claude sessions**:
+- 67% setup automated
+- 34% less yak shaving
+- 89% configs work
+
+</div>
+
+</div>
+
+*Your mileage will vary*
+
+---
+
+# Part 3: MCP Protocol
+
+## When tools need to talk to tools
+
+---
+
+## The Integration Problem
+
+```bash
+# Before MCP: Custom integrations everywhere
+- File system → Custom file reader
+- Git history → Git API wrapper  
+- Database → SQL query tool
+- Web APIs → HTTP client
+- Your tools → Bespoke connector
+```
+
+**Result**: N × M problem  
+**Maintenance**: Everything breaks
+
+---
+
+## MCP Architecture
+
+```javascript
+const mcpFlow = {
+  aiAgent: {
+    llm: 'Claude/GPT',
+    client: 'MCP Client'
+  },
+  servers: [
+    'File System',
+    'Git Operations',
+    'Database',
+    'Web APIs',
+    'Custom Tools'
+  ]
+}
+```
+
+**Key insight**: Standardized protocol  
+**Transport**: JSON-RPC over stdio/HTTP  
+**Benefit**: Write once, use everywhere
+
+---
+
+## MCP in Practice
+
+```python
+class FileSystemServer:
+    def list_files(self, directory: str):
+        return os.listdir(directory)
+    
+    def read_file(self, filepath: str):
+        with open(filepath) as f:
+            return f.read()
+    
+    def write_file(self, filepath: str, content: str):
+        with open(filepath, 'w') as f:
+            f.write(content)
+```
+
+Agent discovers and uses tools automatically
+
+---
+
+## MCP Real Example
+
+```bash
+claude "Review this codebase for improvements"
+
+# Behind the scenes:
+1. filesystem.list_files("/project")
+2. filesystem.read_file("package.json") 
+3. git.get_commit_history(limit=20)
+4. filesystem.read_file("src/main.js")
+5. sqlite.query("SELECT * FROM users")
+```
+
+**Result**: Comprehensive analysis  
+**Maintenance**: Zero custom code
+
+---
+
+# Part 4: Real Experience
+
+## What actually works after 18 months
+
+---
+
+## Project: pdf22png
+
+<div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2em'}}>
+
+<div>
+
+**Context**:
+- PDF to PNG converter
+- 42 commits over 60 days
+- Tool: Claude Code
+
+</div>
+
+<div>
+
+**What worked**:
+- CI/CD setup
+- Test generation
+- Documentation
+- Dependencies
+
+</div>
+
+</div>
+
+**What didn't**: Algorithm choice, edge cases
+
+---
+
+## Project: claif-packages
+
+**Context**: Multi-package Python ecosystem
+
+<Appear>
+
+**Cursor used for**:
+- Individual packages
+- API design
+- Unit tests
+
+**Claude Code used for**:
+- Cross-package consistency
+- Build coordination
+- Documentation
+- Release automation
+
+</Appear>
+
+---
+
+## What Actually Works
+
+<Steps>
+
+### ✅ Excellent (90%+)
+Boilerplate, configs, tests, docs, build systems
+
+### ⚠️ Requires oversight
+Algorithms, performance, security, business logic
+
+### ❌ Generally poor
+Novel algorithms, debugging, optimization, edge cases
+
+</Steps>
+
+---
+
+## Evolved Development Workflow
+
+<Steps>
+
+**Phase 1: Planning** (Human + AI)
+- Problem analysis: Human
+- Approach research: Gemini CLI
+- Architecture: Human
+
+**Phase 2: Implementation** (Cursor)
+- Core logic development
+- Iterative refinement
+- Unit testing
+
+**Phase 3: Integration** (Claude Code)
+- Cross-file refactoring
+- CI/CD setup
+- Documentation
+
+</Steps>
+
+**Throughout**: Version control, human review
+
+---
+
+## Realistic Productivity Impact
+
+<div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2em'}}>
+
+<div>
+
+**Time changes**:
+- 45% less boilerplate
+- 23% more architecture
+- 15% more testing
+- 12% more docs
+
+</div>
+
+<div>
+
+**Quality impact**:
+- Consistent style
+- Better coverage
+- More documentation
+- Fewer config errors
+
+</div>
+
+</div>
+
+**Unchanged**: Debugging, learning curve, review needs
+
+---
+
+## Common Gotchas
+
+<Steps>
+
+1. **Over-reliance on first suggestions**  
+   Review and iterate, don't accept blindly
+
+2. **Context window limitations**  
+   Re-state important constraints explicitly
+
+3. **Consistency across sessions**  
+   Maintain style guides and lint rules
+
+4. **Version drift**  
+   Verify against current best practices
+
+</Steps>
+
+---
+
+## Practical Recommendations
+
+<Appear>
+
+**Start with IDE tools**:
+- GitHub Copilot or Cursor
+- Learn effective prompting
+- Build review habits
+
+**Add CLI tools gradually**:
+- Start with project setup
+- Expand to refactoring
+- Develop workflows
+
+**Essential practices**:
+- Version control everything
+- Review all generated code
+- Test thoroughly
+- Maintain standards
+
+</Appear>
+
+---
+
+## Key Takeaways
+
+<Steps>
+
+1. **LLMs are sophisticated pattern matchers**  
+   Not magic, but very effective
+
+2. **Different tools for different tasks**  
+   IDE for development, CLI for automation
+
+3. **MCP standardizes integration**  
+   Write once, use everywhere
+
+4. **Productivity gains are real**  
+   45% less boilerplate, new skills needed
+
+5. **Human judgment remains essential**  
+   AI handles tedious work, humans decide
+
+</Steps>
+
+---
+
+## Resources
+
+**Documentation**: https://twardoch.github.io/twardoch-is-coding  
+**GitHub**: github.com/twardoch/twardoch-is-coding  
+**MCP Protocol**: modelcontextprotocol.io
+
+**Tools**:
+- Cursor: cursor.sh
+- Claude Code: claude.ai/code
+- GitHub Copilot: github.com/features/copilot
+
+**Contact**: adam@twardoch.com
+
+---
+
+# Questions?
+
+*LLMs are useful tools for working programmers*  
+*Not magical, not autonomous, but genuinely helpful*
+
+**Adam Twardoch**  
+*adam@twardoch.com*
+
+<Notes>
+Thank you for your attention!
+Feel free to reach out with questions or to discuss your experiences.
+The documentation site has all the details and code examples.
+</Notes>
